@@ -95,22 +95,22 @@ def calcular_raices(a : float, b : float, c : float ) -> tuple:
     :param c: Coeficiente c de la ecuación cuadrática
     :return: Tuple con las raíces reales de la ecuación cuadrática
     """
+    x1 = None
+    x2 = None
     discriminante = b**2 - 4*a*c
     if discriminante > 0:
         x1 = (-b + discriminante**0.5) / (2*a)
         x2 = (-b - discriminante**0.5) / (2*a)
         print("Las raíces son diferentes.")
-        return x1, x2  
-     
-    elif discriminante == 0:
+    elif discriminante == 0:    
         x1 = -b / (2*a)
         x2 = x1
         print("Las raíces son iguales.")
-        return x1, x2
-    else:
+    else:   
         print("La ecuación cuadrática no tiene raíces reales.")
-        return None, None
-    
+    return x1, x2
+
+
 def ejercicio_3():
     try:
         a = float(input("Ingrese el coeficiente a: "))
@@ -119,9 +119,9 @@ def ejercicio_3():
 
         if a and b and c == 0:
             raise ValueError("El coeficiente 'a' no puede ser cero.")
-        
+
         x1, x2 = calcular_raices(a, b, c)
-        
+
         if x1 and x2:  # Verificación simplificada
             print(f"La primera raíz X1 es: {x1:.4f}")
             print(f"La segunda raíz X2 es: {x2:.4f}")
@@ -140,17 +140,17 @@ Ejercicio 2.6: Dado un número entero A, determine si es par, impar o nulo.
 """
 def determinar_paridad(a: int) -> str:
     if a == 0:
-        print("El número es nulo")
+        mensaje = " El número es nulo"
     elif a % 2 == 0:
-        print("El número es par") 
+        mensaje = "El número es par"
     else:
-        return"El número es impar"
+        mensaje = "El número es impar"
+    return mensaje
 
 def ejercicio_4():
     try:
         a = int(input("Ingrese un número entero: "))
-        print(f"El número ingresado es: {a}")
-        determinar_paridad(a)
+        print(determinar_paridad(a))
     except ValueError:
         print("Error: Debe ingresar un número entero válido.")
     except Exception as ex:
@@ -162,34 +162,35 @@ Ejercicio 2.7: Dado como datos de entrada tres números enterros
 A,B y C determine si los mismos estan en orden creciente.
 """
 def orden_creciente(a : int, b: int, c: int) -> str:
-    
+    mensaje = " "
     if a < b < c:
-        print ("Los números están en orden creciente")
+        mensaje = "Los números están en orden creciente"
     elif a > b > c:
-        print ("Los números están en orden decreciente")
+        mensaje = "Los números están en orden decreciente"
     elif a == b == c:
-        print ("Los números son iguales")
+        mensaje = "Los números son iguales"
     else:
-        return ("Los números son iguales o decrecientes")
+        mensaje = "Los números no están en orden creciente ni decreciente"
+    return mensaje
     
-def ejercicio_5():   
-    try :
-        a = int(input("Ingrese el primer número: "))
-        b = int(input("Ingrese el segundo número: "))
-        c = int(input("Ingrese el tercer número: "))
+def ejercicio_5():
+    try:
+        a = int(input("Ingrese el primer número entero: "))
+        b = int(input("Ingrese el segundo número entero: "))
+        c = int(input("Ingrese el tercer número entero: "))
 
-        print(f"Los números son: {a}, {b}, {c}")
-        orden_creciente(a, b, c)
-        
+        print(f"Los numeros son {a}, {b}, {c} y son:")
+        print(orden_creciente(a, b, c))
+
     except ValueError:
         print("Error: Debe ingresar un número entero válido.")
     except Exception as ex:
         print(f"Error, excepcion no reconocida: {ex}")
 
 if __name__ == '__main__':
-    ejercicio_1()
-    ejercicio_2()
-    ejercicio_3()
-    ejercicio_4()
+    #ejercicio_1()
+    #ejercicio_2()
+    #ejercicio_3()
+    #ejercicio_4()
     ejercicio_5()
 
